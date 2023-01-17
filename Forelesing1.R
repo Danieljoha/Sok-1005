@@ -35,16 +35,25 @@ data("gapminder")
 
 # Some Questions:
 
-#' Q0. From the gapminder dataset, select country, year & pop 
+# exploring data
+str(gapminder)
+
+glimpse(gapminder)
 
 
 
+#' Q0. From the gapminder dataset, select country, year & pop
+
+q0 <- gapminder %>% 
+  select("country", "year", "pop")
 
 
 
 
 #' Q1: From the gapminder dataset, filter out the data from Norway before and including 1977.
-
+q1 <- gapminder %>% 
+  filter(year > 1977) %>% 
+  filter(country == "Norway")
 
 
 
@@ -53,6 +62,9 @@ data("gapminder")
 
 #' Q2: Filter the data from Norway or Sweden before and including 1970.
 
+q2 <- gapminder %>% 
+  filter(country == c("Norway", "Sweden")) %>% 
+  filter(year <= 1970)
 
 
 
@@ -61,7 +73,9 @@ data("gapminder")
 
 #' Q3. Filter the data from Norway, Sweden, or Denmark before and including 1970.
 
-
+q3 <- gapminder %>% 
+  filter(country == c("Norway", "Sweden", "Denmark")) %>% 
+  filter(year <=1970)
 
 
 
@@ -71,14 +85,16 @@ data("gapminder")
 #' Rename "gdpPercap" by gdp_pc        
 
 
-
+q4 <- q3 %>% 
+  rename(gdp_pc = gdpPercap)
 
 
 
 
 
 #' Q5. Following Q4. Arrange rows according to ascending order of "gdp_pc"
-
+q5 <- q4 %>% 
+  arrange(gdp_pc)
 
 
 
@@ -87,7 +103,8 @@ data("gapminder")
 
 
 #' Q6. Following Q5. Arrange rows according to descending order of "gdp_pc"
-
+q6 <- q5 %>% 
+  arrange(desc(gdp_pc))
 
 
 

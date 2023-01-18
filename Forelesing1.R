@@ -68,7 +68,8 @@ q2 <- gapminder %>%
 
 Norway_Sweden <- c("Norway", "Sweden")
 
-
+q2edit <- gapminder %>% 
+  filter(country %in% Norway_Sweden, year <=1970)
 
 
 

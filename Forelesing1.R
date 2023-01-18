@@ -52,7 +52,7 @@ q0 <- gapminder %>%
 
 #' Q1: From the gapminder dataset, filter out the data from Norway before and including 1977.
 q1 <- gapminder %>% 
-  filter(year > 1977) %>% 
+  filter(year >= 1977) %>% 
   filter(country == "Norway")
 
 
@@ -63,8 +63,12 @@ q1 <- gapminder %>%
 #' Q2: Filter the data from Norway or Sweden before and including 1970.
 
 q2 <- gapminder %>% 
-  filter(country == c("Norway", "Sweden")) %>% 
-  filter(year <= 1970)
+  filter(country %in% c("Norway", "Sweden"), year <= 1970)
+
+
+Norway_Sweden <- c("Norway", "Sweden")
+
+
 
 
 
@@ -75,7 +79,7 @@ q2 <- gapminder %>%
 
 q3 <- gapminder %>% 
   filter(country == c("Norway", "Sweden", "Denmark")) %>% 
-  filter(year <=1970)
+  filter(year <= 1970) 
 
 
 
@@ -120,7 +124,9 @@ q6 <- q5 %>%
 
 #'Q8.Data from Norway.   
 #' Create a new variable that is GDP  from gdpPercap & pop
-
+q8 <- gapminder %>% 
+  filter(country =="Norway") %>% 
+  mutate(GDP = gdpPercap*pop)
 
 
 
@@ -130,7 +136,9 @@ q6 <- q5 %>%
 #' Create a new variable called "gdpNOK" that is GDP per per billion NOK (1 000 000 000 NOK) 
 #' (1 USD=9 NOK)
 
-
+q9 <- q8 %>% 
+  mutate(gdpNOK = GDP/1e9) %>% 
+  mutate(gdpNOK = gdpNOK*9)
 
 
 

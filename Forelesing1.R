@@ -234,7 +234,9 @@ q15 <- gapminder %>%
 
 
 #' Q16. Calculate mean life expectancy by continent & add min and max lifeExp
-
+q16 <- gapminder %>% 
+  group_by(continent) %>% 
+  summarise(avg_life=mean(lifeExp), min=min(lifeExp), max=max(lifeExp))
 
 
 
@@ -244,7 +246,10 @@ q15 <- gapminder %>%
 
 # Q17. Scatter plot of gdpPercap vs lifeExp 
 
-
+gapminder %>% 
+  ggplot(aes(x=gdpPercap, y=lifeExp)) +
+  geom_point(alpha = 0.4) +
+  ggtitle("gdppercap vs life expectancy")
 
 
 
@@ -253,7 +258,9 @@ q15 <- gapminder %>%
 
 # Q18. Scatter plot of gdpPercap vs lifeExp by Continent
 
-
+gapminder %>% 
+  ggplot(aes(x=gdpPercap, y=lifeExp, color=continent, shape=continent))+
+  geom_point()
 
 
 
@@ -263,5 +270,10 @@ q15 <- gapminder %>%
 
 # Q19. Scatter plot of gdpPercap vs lifeExp by Continent. Use different shapes per continent
 
-
+gapminder %>% 
+  ggplot(aes(x= gdpPercap, y= lifeExp))+
+  geom_point(alpha=0.4)+
+  facet_wrap(~continent, ncol=3)+
+  ggtitle("GdpPercap vs lifeExp by continent")
+  
 

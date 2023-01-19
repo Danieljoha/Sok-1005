@@ -62,13 +62,13 @@ q1 <- gapminder %>%
 
 #' Q2: Filter the data from Norway or Sweden before and including 1970.
 
-q2 <- gapminder %>% 
-  filter(country %in% c("Norway", "Sweden"), year <= 1970)
+#q2 <- gapminder %>% 
+  #filter(country %in% c("Norway", "Sweden"), year <= 1970)
 
 
 Norway_Sweden <- c("Norway", "Sweden")
 
-q2edit <- gapminder %>% 
+q2 <- gapminder %>% 
   filter(country %in% Norway_Sweden, year <=1970)
 
 
@@ -78,9 +78,10 @@ q2edit <- gapminder %>%
 
 #' Q3. Filter the data from Norway, Sweden, or Denmark before and including 1970.
 
+Scandinavia <- c("Norway", "Sweden", "Denmark") 
+
 q3 <- gapminder %>% 
-  filter(country == c("Norway", "Sweden", "Denmark")) %>% 
-  filter(year <= 1970) 
+  filter(country %in% Scandinavia, year <= 1970)
 
 
 
@@ -118,7 +119,8 @@ q6 <- q5 %>%
 
 #' Q7. Arrange rows according to ascending order of "gdp_pc", within each year. 
 
-
+q7 <- q6 %>% 
+  arrange(year, gdp_pc)
 
 
 
@@ -147,8 +149,19 @@ q9 <- q8 %>%
 #' Q10.Use mutate and ifelse to Categorise "gdpNOK" into 3 categories,
 #'  (i.e., less than or equal to 999, between 1000 and 1999, and greater than 2000).
 
+q10 <- gapminder %>% 
+  mutate(GDP = gdpPercap*pop) %>% 
+  mutate(gdpNOK = GDP/1e9) %>% 
+  mutate(gdpNOK = gdpNOK*9) %>% 
+  mutate(gdpcat =         ifelse(gdpNOK <= 999, "less than a billion",
+                          ifelse(gdpNOK > 1000 & gdpNOK <= 1999, "between a billion and two billions" , 
+                          ifelse(gdpNOK >2000, "larger than two billions",  NA))))
 
 
+
+                  #       gdpcat = ifelse(gdpNOK <= 999, "less than a billion",
+                   #     ifelse(gdpNOK > 1000 & gdpNOK <= 1999, "between a billion and two billions",
+                    #    ifelse(gdpNOK > 2000, "larger than two billions", NA))))
 
 
 
@@ -157,7 +170,13 @@ q9 <- q8 %>%
 #' (i.e., Norway, Sweden, Denmark)
 
 
+q11 <- gapminder %>% 
+  filter(country %in% Scandinavia) %>% 
+  mutate(avg_life = mean(lifeExp))
 
+#q11 <- gapminder %>% 
+  #filter(country %in% Scandinavia) %>% 
+  #summarise(mean(lifeExp))
 
 
 
@@ -166,10 +185,16 @@ q9 <- q8 %>%
 
 #' Q12. Calculate the average lifExp of the three countries,per country. 
 
+#q12 <- gapminder %>% 
+#  filter(country %in% Scandinavia) %>% 
+#  group_by(country) %>% 
+#  mutate(avg_life = mean(lifeExp))
 
 
-
-
+q12 <- gapminder %>% 
+  filter(country %in% Scandinavia) %>% 
+  group_by(country) %>% 
+  summarise(avg_life = mean(lifeExp))
 
 
 
@@ -177,7 +202,9 @@ q9 <- q8 %>%
 #' Q13. Calculate mean life expectancy per country 
 #' (i.e., for every country in the gapminder data set)
 
-
+q13 <- gapminder %>% 
+  group_by(country) %>% 
+  summarise (avg_life = mean(lifeExp))
 
 
 
@@ -185,7 +212,9 @@ q9 <- q8 %>%
 
 
 #' Q14. Calculate mean life expectancy per continent.
-
+q14 <- gapminder %>% 
+  group_by(continent) %>% 
+  summarise (avg_life = mean(lifeExp))
 
 
 
@@ -195,7 +224,9 @@ q9 <- q8 %>%
 
 #' Q15. calculate mean life expectancy by continent & country
 
-
+q15 <- gapminder %>% 
+  group_by(continent, country) %>% 
+  summarise (avg_life = mean(lifeExp))
 
 
 

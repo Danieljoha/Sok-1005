@@ -7,11 +7,11 @@ test <- as_tibble(test)
 
 
 test1 <- test %>% 
-  mutate(dato = ym(paste(Year, Mo)))
+  mutate(date = ym(paste(Year, Mo)))
 test1 <- test1 %>% 
-  select(dato, everything())
+  select(date, everything())
 
 
 test1 %>% 
-  ggplot(aes(x=dato, y=Globe))+
+  ggplot(aes(x=date, y=Globe))+
   geom_line()

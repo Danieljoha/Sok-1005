@@ -19,5 +19,11 @@ temp %>%
   geom_line()
 
 temp1 <- temp %>% 
-  aggregate(Globe~Year, FUN=mean)
+  aggregate(Globe~Year, FUN=sum) %>% 
+  filter(Year>1978) %>%
+  group_by(Year) %>% 
+  mutate(Globe= Globe/12)
 
+temp1 %>% 
+  ggplot(aes(x=Year, y=Globe))+
+  geom_line()

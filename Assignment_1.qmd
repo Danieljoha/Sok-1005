@@ -78,3 +78,9 @@ df <- lower %>%
   cbind(tropopause_globe = tropopause$tropopause_globe) %>% 
   mutate_if(is.character, ~as.numeric(.))
 ```
+
+Now that we have made our datasets, its time to start creating rolling averages
+
+```{r}
+
+```

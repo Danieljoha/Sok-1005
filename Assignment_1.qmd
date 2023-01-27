@@ -9,6 +9,12 @@ editor: visual
 
 We start by gathering the data we need and getting all our packages
 
+The data is:
+Lower-Troposphere\
+Mid-Troposphere\
+Tropopause\
+Lower-Stratosphere
+
 ```{r, warning=False}
 rm(list=ls()) #emptying enviroment
 library(tidyverse)
@@ -42,18 +48,32 @@ We are told to also only use data in the Globe column so I will now select it ou
 ```{r}
 lower <- lower %>% 
   mutate(Date = ym(paste(Year, Mo))) %>% #Creating a Date variable
-  select(Date , Year, Mo, Globe) #selecting and arranging the data we want
-
+  select(Date , Year, Mo, Globe) %>%  #selecting and arranging the data we want
+  rename(lowerglobe = Globe)
+  
 mid <- mid %>% 
   mutate(Date = ym(paste(Year, Mo))) %>% 
-  select(Date ,Year, Mo, Globe) 
+  select(Date ,Year, Mo, Globe) %>% 
+  rename(mid_globe = Globe)
 
 stratosphere <- stratosphere %>% 
   mutate(Date = ym(paste(Year, Mo))) %>% 
-  select(Date, Year, Mo, Globe) 
+  select(Date, Year, Mo, Globe) %>% 
+  rename(stratosphere_globe = Globe)
 
 tropopause <- tropopause %>% 
   mutate(Date = ym(paste(Year, Mo))) %>% 
-  select(Date, Year, Mo, Globe) 
+  select(Date, Year, Mo, Globe) %>% 
+  rename(tropopause_globe = Globe)
 
+```
+
+We now combine them into one dataset we can work with
+
+```{r}
+
+df <- lower %>% 
+  cbind(mid_globe = mid$mid_globe) %>% 
+  cbind(stratosphere_globe = stratosphere$stratosphere_globe) %>% 
+  cbind(tropopause_globe = tropopause$tropopause_globe)
 ```

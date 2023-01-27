@@ -23,7 +23,7 @@ stratosphere <- read_table("http://vortex.nsstc.uah.edu/data/msu/v6.0/tls/uahncd
 
 Now that we have gotten our data and our packages, i start with removing the last rows in the dataset that contains comments that we don't need.
 
-Here we use code to dynamically remove the comments even if new data is added. The code is gathered from the link provided below.
+Here I use code to dynamically remove the comments even if new data is added. The code is gathered from the link provided below. It is at line 43.
 
 [Source of the code used for dynamic code](https://github.com/uit-sok-1005-v23/uit-sok-1005-v23.github.io/blob/main/Global_Temperature.R "Line 43")
 

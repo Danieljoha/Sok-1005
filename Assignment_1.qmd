@@ -1,0 +1,59 @@
+---
+title: "Sok-1005_Assignment_1"
+author: Daniel Johannessen. kandidat nummer 3
+format: html
+editor: visual
+---
+
+## Assignment 1 Reading static webpages. 
+
+We start by gathering the data we need and getting all our packages
+
+```{r, warning=False}
+rm(list=ls()) #emptying enviroment
+library(tidyverse)
+library(lubridate)
+
+
+lower <- read_table("http://vortex.nsstc.uah.edu/data/msu/v6.0/tlt/uahncdc_lt_6.0.txt")
+mid <- read_table("http://vortex.nsstc.uah.edu/data/msu/v6.0/tmt/uahncdc_mt_6.0.txt")
+tropopause <- read_table("http://vortex.nsstc.uah.edu/data/msu/v6.0/ttp/uahncdc_tp_6.0.txt")
+stratosphere <- read_table("http://vortex.nsstc.uah.edu/data/msu/v6.0/tls/uahncdc_ls_6.0.txt")
+```
+
+Now that we have gotten our data and our packages, i start with removing the last rows in the dataset that contains comments that we don't need.
+
+Here we use code to dynamically remove the comments even if new data is added. The code is gathered from the link provided below.
+
+[Source of the code used for dynamic code](https://github.com/uit-sok-1005-v23/uit-sok-1005-v23.github.io/blob/main/Global_Temperature.R "Line 43")
+
+```{r}
+
+lower <- lower[1:which(lower$Year %in% "Year")-1, ]
+mid <- mid[1:which(mid$Year %in% "Year")-1, ]
+tropopause <- tropopause[1:which(tropopause$Year %in% "Year")-1, ]
+stratosphere <- stratosphere[1:which(stratosphere$Year %in% "Year")-1, ]
+
+
+```
+
+We are told to also only use data in the Globe column so I will now select it out of each dataset then combine the datasets into one.
+
+```{r}
+lower <- lower %>% 
+  mutate(Date = ym(paste(Year, Mo))) %>% #Creating a Date variable
+  select(Date , Year, Mo, Globe) #selecting and arranging the data we want
+
+mid <- mid %>% 
+  mutate(Date = ym(paste(Year, Mo))) %>% 
+  select(Date ,Year, Mo, Globe) 
+
+stratosphere <- stratosphere %>% 
+  mutate(Date = ym(paste(Year, Mo))) %>% 
+  select(Date, Year, Mo, Globe) 
+
+tropopause <- tropopause %>% 
+  mutate(Date = ym(paste(Year, Mo))) %>% 
+  select(Date, Year, Mo, Globe) 
+
+```

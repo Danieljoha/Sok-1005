@@ -49,7 +49,7 @@ We are told to also only use data in the Globe column so I will now select it ou
 lower <- lower %>% 
   mutate(Date = ym(paste(Year, Mo))) %>% #Creating a Date variable
   select(Date , Year, Mo, Globe) %>%  #selecting and arranging the data we want
-  rename(lowerglobe = Globe)
+  rename(lower_globe = Globe) 
   
 mid <- mid %>% 
   mutate(Date = ym(paste(Year, Mo))) %>% 
@@ -70,17 +70,56 @@ tropopause <- tropopause %>%
 
 We now combine them into one dataset we can work with and we convert strings to numeric.
 
+We also create new variables for our averages per year
+
 ```{r}
 
 df <- lower %>% 
   cbind(mid_globe = mid$mid_globe) %>% 
   cbind(stratosphere_globe = stratosphere$stratosphere_globe) %>% 
   cbind(tropopause_globe = tropopause$tropopause_globe) %>% 
-  mutate_if(is.character, ~as.numeric(.))
+  mutate_if(is.character, ~as.numeric(.)) %>% 
+  group_by(Year) %>% #Grouping by year to calculate yearly averages 
+  mutate(avg_lower=mean(lower_globe)) %>% 
+  mutate(avg_mid=mean(mid_globe)) %>% 
+  mutate(avg_strato=mean(stratosphere_globe)) %>% 
+  mutate(avg_tropo=mean(tropopause_globe))
+
+
 ```
 
 Now that we have made our datasets, its time to start creating rolling averages
 
 ```{r}
 
+df %>% 
+  ggplot(aes(x=Date, y=avg_lower)) + geom_line(col="blue") +
+  geom_line(aes(x=Date, y=avg_mid), col="red") +
+  geom_line(aes(x=Date, y=avg_strato), col="orange")+
+  geom_line(aes(x=Date, y=avg_tropo), col="darkgreen")
+```
+
+geom_line(aes(y=zoo::rollmean(Globe, 13, fill=NA)), col="red", size=1.3)
+
+```{r}
+
+b = c("Year", "Date", "Mo")
+
+#test <- df %>% 
+#  ungroup(Year) %>% 
+#  select(-Mo) %>%
+#  pivot_longer(-b, names_to = "Location", values_to = "Temperature")
+
+test <- df %>% 
+  ungroup(Year) %>% 
+  select(Date, Year, avg_lower, avg_mid, avg_strato, avg_tropo, Mo) %>% 
+  pivot_longer(-b, names_to = "Location", values_to = "Temperature")
+
+
+test %>% 
+  ggplot(aes(x=Year, y=Temperature, group=Location)) +
+  scale_x_continuous(breaks=seq(1980, 2020 ,5)) + 
+  geom_line(aes(colour=as.factor(Year))) +
+  ggtitle("Plot of temperature over time") +
+  ylab("Global Temperature") + xlab("Month")  
 ```

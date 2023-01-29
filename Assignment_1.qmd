@@ -107,8 +107,8 @@ b = c("Year", "Date", "Mo")
 
 #test <- df %>% 
 #  ungroup(Year) %>% 
-#  select(-Mo) %>%
-#  pivot_longer(-b, names_to = "Location", values_to = "Temperature")
+#  select(b, lower_globe, mid_globe, stratosphere_globe, tropopause_globe) %>% 
+#  pivot_longer(-b, names_to = "Location", values_to = "Temperature") 
 
 test <- df %>% 
   ungroup(Year) %>% 
@@ -116,10 +116,18 @@ test <- df %>%
   pivot_longer(-b, names_to = "Location", values_to = "Temperature")
 
 
+#test %>% 
+#  ggplot(aes(x=Mo, y=Temperature, group=Location)) +
+#  scale_x_continuous(breaks=seq(1, 12 ,1)) + 
+#  geom_line(aes(color=as.factor(Year))) +
+#  ggtitle("Plot of temperature over time") +
+#  ylab("Global Temperature") + xlab("Month")  
+
+
 test %>% 
   ggplot(aes(x=Year, y=Temperature, group=Location)) +
-  scale_x_continuous(breaks=seq(1980, 2020 ,5)) + 
-  geom_line(aes(colour=as.factor(Year))) +
+#  scale_x_continuous(breaks=seq(1, 12 ,1)) + 
+  geom_line(aes(color=Location)) +
   ggtitle("Plot of temperature over time") +
-  ylab("Global Temperature") + xlab("Month")  
+  ylab("Global Temperature") + xlab("Year")  
 ```

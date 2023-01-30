@@ -119,7 +119,7 @@ rolling %>%
   geom_line(aes(y=rolling_strato, color="Stratosphere"))+
   geom_line(aes(y=rolling_tropo, color="Lower tropopause")) +
   geom_line(aes(y=average, color="Average temperature"), size=1.2)+
-  labs(title="Temperature over time", color="Location", y="Temperature")+
+  labs(title="Temperature over time", color="Location", y="Temperature", x= "Year")+
   theme_bw()
 ```
 

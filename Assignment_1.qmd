@@ -19,6 +19,7 @@ Lower-Stratosphere
 rm(list=ls()) #emptying enviroment
 library(tidyverse)
 library(lubridate)
+library(zoo)
 
 
 lower <- read_table("http://vortex.nsstc.uah.edu/data/msu/v6.0/tlt/uahncdc_lt_6.0.txt")
@@ -78,12 +79,9 @@ df <- lower %>%
   cbind(mid_globe = mid$mid_globe) %>% 
   cbind(stratosphere_globe = stratosphere$stratosphere_globe) %>% 
   cbind(tropopause_globe = tropopause$tropopause_globe) %>% 
-  mutate_if(is.character, ~as.numeric(.)) %>% 
-  group_by(Year) %>% #Grouping by year to calculate yearly averages 
-  mutate(avg_lower=mean(lower_globe)) %>% 
-  mutate(avg_mid=mean(mid_globe)) %>% 
-  mutate(avg_strato=mean(stratosphere_globe)) %>% 
-  mutate(avg_tropo=mean(tropopause_globe))
+  mutate_if(is.character, ~as.numeric(.))
+
+
 
 
 ```
@@ -92,42 +90,93 @@ Now that we have made our datasets, its time to start creating rolling averages
 
 ```{r}
 
-df %>% 
-  ggplot(aes(x=Date, y=avg_lower)) + geom_line(col="blue") +
-  geom_line(aes(x=Date, y=avg_mid), col="red") +
-  geom_line(aes(x=Date, y=avg_strato), col="orange")+
-  geom_line(aes(x=Date, y=avg_tropo), col="darkgreen")
+rolling <- df %>% 
+  mutate(rolling_lower = rollmean(lower_globe, 12,  fill=NA, align="right")) %>% 
+  mutate(rolling_mid = rollmean(mid_globe, 12, fill=NA, align="right")) %>% 
+  mutate(rolling_strato = rollmean(stratosphere_globe, 12, fill=NA, align="right")) %>% 
+  mutate(rolling_tropo = rollmean(tropopause_globe, 12, fill=NA, align="right")) 
+
+
 ```
 
-geom_line(aes(y=zoo::rollmean(Globe, 13, fill=NA)), col="red", size=1.3)
+```{r}
+
+rolling <- rolling %>% 
+  mutate(average = (rolling_lower + rolling_mid + rolling_strato + rolling_tropo)/4)
+
+
+
+```
+
+Now that we have our dataset with our rolling averages and our average of the rolling averages its time to start plotting.
+
+```{r}
+rolling %>% 
+  filter(Year >= 1980) %>% 
+  ggplot(aes(x=Date))+
+  geom_line(aes(y=rolling_lower, color="Lower atmosphere"))+
+  geom_line(aes(y=rolling_mid, color="Middle atmosphere"))+
+  geom_line(aes(y=rolling_strato, color="Stratosphere"))+
+  geom_line(aes(y=rolling_tropo, color="Lower tropopause")) +
+  geom_line(aes(y=average, color="Average temperature"), size=1.2)+
+  labs(title="Temperature over time", color="Location", y="Temperature")+
+  theme_bw()
+```
 
 ```{r}
 
 b = c("Year", "Date", "Mo")
 
-#test <- df %>% 
-#  ungroup(Year) %>% 
-#  select(b, lower_globe, mid_globe, stratosphere_globe, tropopause_globe) %>% 
-#  pivot_longer(-b, names_to = "Location", values_to = "Temperature") 
 
-test <- df %>% 
+rolling_long <- rolling %>% 
+  select(Date, Year, Mo, average, rolling_lower, rolling_mid, rolling_strato, rolling_tropo) %>% 
+  pivot_longer(-b, names_to = "Location", values_to = "Temperature")
+```
+
+```{r}
+
+rolling_long %>% 
+  ggplot(aes(x=Date, y=Temperature, group=Location)) +
+  geom_line(aes(color=Location)) +
+  ggtitle("Plot of temperature over time as yearly average") +
+  ylab("Global Temperature") + xlab("Year")  
+```
+
+As a side project I also made yearly averages as shown below.
+
+```{r}
+
+df_yearly <- df %>% 
+  group_by(Year) %>% #Grouping by year to calculate yearly averages 
+  mutate(avg_lower=mean(lower_globe)) %>% 
+  mutate(avg_mid=mean(mid_globe)) %>% 
+  mutate(avg_strato=mean(stratosphere_globe)) %>% 
+  mutate(avg_tropo=mean(tropopause_globe))
+
+
+df_yearly %>% 
+  ggplot(aes(x=Date, y=avg_lower)) + geom_line(col="blue") +
+  geom_line(aes(x=Date, y=avg_mid), col="red") +
+  geom_line(aes(x=Date, y=avg_strato), col="orange")+
+  geom_line(aes(x=Date, y=avg_tropo), col="darkgreen")+
+  ggtitle("Monthly averages")
+```
+
+```{r}
+
+b = c("Year", "Date", "Mo")
+
+
+Yearlyaverage <- df_yearly %>% 
   ungroup(Year) %>% 
   select(Date, Year, avg_lower, avg_mid, avg_strato, avg_tropo, Mo) %>% 
   pivot_longer(-b, names_to = "Location", values_to = "Temperature")
 
 
-#test %>% 
-#  ggplot(aes(x=Mo, y=Temperature, group=Location)) +
-#  scale_x_continuous(breaks=seq(1, 12 ,1)) + 
-#  geom_line(aes(color=as.factor(Year))) +
-#  ggtitle("Plot of temperature over time") +
-#  ylab("Global Temperature") + xlab("Month")  
 
-
-test %>% 
+Yearlyaverage %>% 
   ggplot(aes(x=Year, y=Temperature, group=Location)) +
-#  scale_x_continuous(breaks=seq(1, 12 ,1)) + 
   geom_line(aes(color=Location)) +
-  ggtitle("Plot of temperature over time") +
+  ggtitle("Plot of temperature over time as yearly average") +
   ylab("Global Temperature") + xlab("Year")  
 ```

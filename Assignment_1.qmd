@@ -5,12 +5,11 @@ format: html
 editor: visual
 ---
 
-## Assignment 1 Reading static webpages. 
+## Assignment 1 Reading static webpages.
 
 We start by gathering the data we need and getting all our packages
 
-The data is:
-Lower-Troposphere\
+The data is: Lower-Troposphere\
 Mid-Troposphere\
 Tropopause\
 Lower-Stratosphere
@@ -111,7 +110,7 @@ rolling <- rolling %>%
 
 Now that we have our dataset with our rolling averages and our average of the rolling averages its time to start plotting.
 
-```{r}
+```{r, warning=False}
 rolling %>% 
   filter(Year >= 1980) %>% #filtering for years from and including 1980
   ggplot(aes(x=Date))+ #we set our x axis to date

@@ -115,10 +115,10 @@ Now that we have our dataset with our rolling averages and our average of the ro
 rolling %>% 
   filter(Year >= 1980) %>% #filtering for years from and including 1980
   ggplot(aes(x=Date))+ #we set our x axis to date
-  geom_line(aes(y=rolling_lower, color="Lower atmosphere"))+ #we set lines for all the different variables
-  geom_line(aes(y=rolling_mid, color="Middle atmosphere"))+
-  geom_line(aes(y=rolling_strato, color="Stratosphere"))+
-  geom_line(aes(y=rolling_tropo, color="Lower tropopause")) +
+  geom_line(aes(y=rolling_lower, color="Lower Troposphere"))+ #we set lines for all the different variables
+  geom_line(aes(y=rolling_mid, color="Mid-Troposphere"))+
+  geom_line(aes(y=rolling_strato, color="Lower Stratosphere"))+
+  geom_line(aes(y=rolling_tropo, color="Tropopause")) +
   geom_line(aes(y=average, color="Average temperature"), size=1.2)+
   labs(title="Temperature over time", color="Location", y="Temperature", x= "Year")+ #We add the title, change legend name to location and set Y and X axis 
   theme_bw() #we set the theme to black and white instead of default

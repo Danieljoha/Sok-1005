@@ -119,8 +119,13 @@ rolling %>%
   geom_line(aes(y=rolling_strato, color="Lower Stratosphere"))+
   geom_line(aes(y=rolling_tropo, color="Tropopause")) +
   geom_line(aes(y=average, color="Centered average"), size=1.2)+
-  labs(title="Global temperature changes over time", color="Location", y="Temperature in celsius", x= "Year", subtitle="The graph shows the temperature deviation from the 1991-2020 average.
-The graph shows right aligned rolling averages", caption="Source: www.drroyspencer.com/latest-global-temperatures/")+ #We add the title and subtitle, change legend name to location, set caption and set Y and X axis
+  labs(title="Global temperature changes over time",#Setting title
+  color="Location", #Changing legend name to location
+  y="Temperature in celsius", #Setting Y axis name
+  x= "Year",  #Setting X axis name
+  subtitle="The graph shows the temperature deviation from the 1991-2020 average.
+The graph shows right aligned rolling averages", #Setting subtitle
+  caption="Source: www.drroyspencer.com/latest-global-temperatures/")+ #Setting caption
   theme_bw() + #we set the theme to black and white instead of default 
   theme(plot.caption.position = "plot",
         plot.caption = element_text(hjust = 1))#Setting caption location

@@ -46,10 +46,12 @@ df1 <- df %>%
 
 ```{r}
 df1 %>% 
+  mutate(Year=year(date)) %>% 
   ggplot(aes(x=date, y=price_monthly_avg)) + 
   geom_line(linewidth=1)+
-  labs(y="Price", x="Year", title="Brent Crude Oil prices in Europe", caption="Source=FRED", subtitle="Prices are monthly averages")+
+  labs(y="Price", x="Year", title="Brent Crude Oil prices in Europe", caption="Source=FRED", subtitle="Prices are in arithmetic monthly averages")+
   theme_bw()+
-  scale_x_date(date_breaks = "year", date_labels = "%Y")+
+  scale_x_date(limits = c(as.Date("2010-01-01"), as.Date("2022-12-01")),date_breaks = "year", date_labels = "%Y", expand = c(0,0))+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+
 ```

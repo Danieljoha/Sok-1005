@@ -65,7 +65,7 @@ Task 2
 lm(stopp_km ~ wltp_km, data = df_motor)
 ```
 
-The linear line would intercept the y axis at -26.645. \
+The linear line would intercept the y axis at -26.645.\
 The line would increase at a rate of 0.8671 which is lower than the red line in the plot.
 
 ```{r, message=FALSE}
@@ -79,7 +79,8 @@ df_motor %>%
   scale_y_continuous(limits = c(200, 700))+
   theme_bw()+
   labs(caption="Source: https://www.motor.no/aktuelt/motors-store-vintertest-av-rekkevidde-pa-elbiler/217132", title="Range of electric cars", subtitle="The red line shows stated range in the Red line.
-The dots are the actual milage in Motor's Range test", x="Motor's range test in kilometers", y="Stated range in kilometers")
+The dots are the actual milage in Motor's Range test
+The blue line plots the linear regression from the data points from the range test", x="Motor's range test in kilometers", y="Stated range in kilometers")
 ```
 
-The blue line plots the linear regression from the data points from the range test. We can see that the blue line is flatter than the red line showing that the higher the stated range is, the larger the deviation will be in the range test.
+We can see that the blue line is flatter than the red line showing that the higher the stated range is, the larger the deviation will be in the range test.

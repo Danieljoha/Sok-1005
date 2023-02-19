@@ -1,0 +1,37 @@
+---
+title: "Assignment_2"
+format: html
+editor: visual
+---
+
+**Assignment - 2:  Scraping an html table from a web page**
+
+<https://www.motor.no/aktuelt/motors-store-vintertest-av-rekkevidde-pa-elbiler/217132>
+
+```{r}
+rm (list = ls())
+library(tidyverse)
+library(rvest) 
+library(janitor) 
+library(lubridate)
+```
+
+```{r}
+url <- "https://www.motor.no/aktuelt/motors-store-vintertest-av-rekkevidde-pa-elbiler/217132"
+
+
+motor <- read_html(url)
+
+
+df_motor <- url %>% 
+  read_html() %>% 
+  html_element("table") %>% 
+  html_table() %>% 
+  row_to_names(row_number = 1)
+
+
+df_motor %>% 
+  ggplot(aes(x=`WLTP-tall`, y=STOPP))+
+  geom_point()
+
+```

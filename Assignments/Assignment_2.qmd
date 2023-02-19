@@ -17,6 +17,8 @@ library(lubridate)
 library(dplyr)
 ```
 
+Task 1
+
 ```{r}
 url <- "https://www.motor.no/aktuelt/motors-store-vintertest-av-rekkevidde-pa-elbiler/217132"
 
@@ -48,5 +50,17 @@ df_motor <- df_motor %>%
 df_motor %>% 
   ggplot(aes(x=wltp_km, y=stopp_km))+
   geom_point()+
-  geom_abline(slope=1, color="red")
+  geom_abline(slope=1, color="red")+
+  scale_x_continuous(limits = c(200, 700))+
+  scale_y_continuous(limits = c(200, 700))+
+  theme_bw()+
+  labs(caption="Source: https://www.motor.no/aktuelt/motors-store-vintertest-av-rekkevidde-pa-elbiler/217132", title="Range of electric cars", subtitle="The red line shows stated range in the Red line.
+The dots are the actual milage in Motor's Range test", x="Motor's range test in kilometers", y="Stated range in kilometers")
+
+```
+
+Task 2
+
+```{r}
+
 ```

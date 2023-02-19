@@ -62,5 +62,19 @@ The dots are the actual milage in Motor's Range test", x="Motor's range test in 
 Task 2
 
 ```{r}
+lm(stopp_km ~ wltp_km, data = df_motor)
+```
 
+The linear line would intercept the y axis at -26.645. \
+The line would increase at a rate of 0.8671 which is lower than the red line in the plot.
+
+```{r, message=FALSE}
+
+df_motor %>% 
+  ggplot(aes(x=wltp_km, y=stopp_km))+
+  geom_point()+
+  geom_abline(slope=1, color="red")+
+  geom_smooth(method=lm)+
+  scale_x_continuous(limits = c(200, 700))+
+  scale_y_continuous(limits = c(200, 700))
 ```

@@ -39,7 +39,7 @@ Here I use code to dynamically remove the comments even if new data is added. Th
 lower <- lower[1:which(lower$Year %in% "Year")-1, ]
 mid <- mid[1:which(mid$Year %in% "Year")-1, ]
 tropopause <- tropopause[1:which(tropopause$Year %in% "Year")-1, ]
-stratosphere <- stratosphere[1:which(stratosphere$Year %in% "Year")-1, ] #We remove all rows above the second "Year" in the table.
+stratosphere <- stratosphere[1:which(stratosphere$Year %in% "Year")-1, ] #We remove all rows below the second "Year" in the table.
 
 
 ```

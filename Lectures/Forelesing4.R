@@ -17,6 +17,7 @@ View(superstore)
 str(superstore)
 names(superstore)
 
+
 superstore$`Order ID`
 
 #' Change names, do not like "-" in variable names
@@ -65,7 +66,8 @@ superstore %>% select(Sales, Province, Order_Date) %>%
   summarise(Total_Sales = sum(Sales)) %>% filter(Province %in% c("Alberta","Yukon")) %>% 
   filter(Year_Month >= '2010-01-01' & Year_Month <= '2011-12-01') %>% 
   ggplot(., aes(x=Year_Month, y=Total_Sales, color=Province)) + geom_line() +
-  xlab("Year Month") + ylab("Sale Amount") + ggtitle("Monthly Total Sale Amount By Province")
+  xlab("Year Month") + ylab("Sale Amount") + ggtitle("Monthly Total Sale Amount By Province")+
+  scale_x_continuous(expand = c(0,0))
 
 
 #' Changing aesthetics
@@ -198,14 +200,14 @@ superstore %>% select(Profit, Customer_Segment, Product_Category, Order_Date, Pr
 
 #' What customer segment and product category has the highest correlation between
 #' unit price and sales?
-
-# superstore %>% 
-#   group_by(Customer_Segment) %>% 
-#   select(Sales,Unit_Price) %>% 
+# 
+# superstore %>%
+#   group_by(Customer_Segment) %>%
+#   select(Sales,Unit_Price) %>%
 #   summarize(cor(Sales,Unit_Price))
-# superstore %>% 
-#   group_by(Product_Category) %>% 
-#   select(Sales,Unit_Price) %>% 
+# superstore %>%
+#   group_by(Product_Category) %>%
+#   select(Sales,Unit_Price) %>%
 #   summarize(cor(Sales,Unit_Price))
 
 #browseURL("https://cran.r-project.org/web/packages/broom/vignettes/broom_and_dplyr.html")

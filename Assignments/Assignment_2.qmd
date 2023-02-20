@@ -69,7 +69,8 @@ The linear line would intercept the y axis at -26.645.\
 The line would increase at a rate of 0.8671 which is lower than the red line in the plot.
 
 ```{r, message=FALSE}
-
+blue = "Rate of increase of 0.8671"
+red = "Rate of increase of 1"
 df_motor %>% 
   ggplot(aes(x=wltp_km, y=stopp_km))+
   geom_point()+
@@ -78,6 +79,8 @@ df_motor %>%
   scale_x_continuous(limits = c(200, 700))+
   scale_y_continuous(limits = c(200, 700))+
   theme_bw()+
+  annotate("text",x=645,y=450, label=blue, color="blue")+
+  annotate("text",x=450,y=550, label=red, color="red")+
   labs(caption="Source: https://www.motor.no/aktuelt/motors-store-vintertest-av-rekkevidde-pa-elbiler/217132", title="Range of electric cars", subtitle="The red line shows stated range in the Red line.
 The dots are the actual milage in Motor's Range test
 The blue line plots the linear regression from the data points from the range test", x="Motor's range test in kilometers", y="Stated range in kilometers")

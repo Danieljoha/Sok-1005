@@ -16,11 +16,25 @@ sw <- starwars
 
 # Q1. How many missing (NA) values does sw contain?
 
+is.na(sw)
+
+
+sum(is.na(sw))#105 NA's
+
 # Q2. Which variable (column) has the most missing values?
 
+colSums(is.na(sw))
+colMeans(is.na(sw))
+
+max(colSums(is.na(sw)))
 
 #Q3. Replace all missing values of `hair_color` (in the variable `sw$hair_color`) by "bald": 
 
+sw$hair_color
+
+sw$hair_color[is.na(sw$hair_color)] <- "bald"
+
+sw$hair_color
 
 # Q4. Which individuals come from an unknown (missing) homeworld 
 # but have a known birth_year or mass? 

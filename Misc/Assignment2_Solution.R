@@ -122,5 +122,8 @@ dframe %>%
   coord_fixed() +
   theme_classic()
 
+library(mosaic)
+fit <- summary(lm(stopp ~ wltp, data = dframe))
+summary(fit)
 
 summary(lm(stopp ~ wltp, data = dframe))

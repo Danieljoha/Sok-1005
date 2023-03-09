@@ -8,7 +8,7 @@ editor: visual
 
 <https://www.motor.no/aktuelt/motors-store-vintertest-av-rekkevidde-pa-elbiler/217132>
 
-```{r}
+```{r, message=false}
 rm (list = ls())
 library(tidyverse)
 library(rvest) 
@@ -19,11 +19,10 @@ library(dplyr)
 
 Task 1
 
-```{r}
+```{r, warning=false}
 url <- "https://www.motor.no/aktuelt/motors-store-vintertest-av-rekkevidde-pa-elbiler/217132"
 
 
-motor <- read_html(url)
 
 
 df_motor <- url %>% 

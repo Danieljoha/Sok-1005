@@ -1,0 +1,20 @@
+---
+title: "Assignment_3"
+format: html
+editor: visual
+---
+
+**Assignment 3: Reading json data from a web page**
+
+On the website of the New York Times: <https://www.nytimes.com/interactive/2021/12/28/us/covid-deaths.html?referrer=masthead>
+
+We find a figure showing the relationship between vaccination rates and the number of deaths from COVID-19 in the various states in the US.
+
+```{r}
+rm (list = ls())
+library(tidyverse)
+library(rvest) 
+library(janitor) 
+library(lubridate)
+library(dplyr)
+```

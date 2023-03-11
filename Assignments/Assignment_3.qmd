@@ -32,9 +32,6 @@ df <- df %>%
 df[9, 7] = "D.C"
 
 
-df <- df %>% 
-  rename("Fully vaccinated % of pop" = fully_vaccinated_pct_of_pop, 
-         "Deaths per 100 000" = deaths_per_100k) #Doing this to make the interactive plot easier
 ```
 
 ```{r, fig.width=8, fig.height=9, fig.cap="Source: [New York Times database](https://www.nytimes.com/interactive/2021/us/covid-cases.html) of reports from state and local health agencies, Centers for Disease Control and Prevention • Notes: Chart shows deaths reported since universal vaccine eligibility on April 19, 2021. Vaccination rate is the percentage of the total population fully vaccinated as of Dec. 20, 2021."}
@@ -42,11 +39,12 @@ df <- df %>%
 
 
 p <- df %>% 
-  ggplot(aes(x = `Fully vaccinated % of pop`, y = `Deaths per 100 000`)) + 
+  ggplot(aes(x = fully_vaccinated_pct_of_pop, y = deaths_per_100k))+ 
   
   geom_point(color= "#6b9d92", fill = "#9abdb5", size=3) + 
   
-  geom_text(aes(label = stateabb),hjust=0.4, vjust=-0.5, size = 3) +
+  geom_text(aes(label = stateabb),
+            hjust=0.45, vjust=-0.45, size = 3) +
   
   labs(title = "Covid-19 deaths since universal adult vaccine eligibility compared with 
        vaccination rates",
@@ -99,36 +97,118 @@ p2
 
 
 
-summary(lm(`Deaths per 100 000` ~ `Fully vaccinated % of pop`, data = df))
+summary(lm(deaths_per_100k ~ fully_vaccinated_pct_of_pop, data = df))
 
 
 ```
 
 This gives us a coefficient that shows us that it estimates a -36.663 per per x, value this tells us that there would be 36.663 less in deaths per 100 000 for every 1% increase in vaccine coverage.
 
-```{r, message=FALSE, fig.width=8, fig.height=9}
-
-
-
-p2 + geom_smooth(method = lm, se=FALSE)
-```
-
-Finally i made this using plotly.
-
 ```{r, fig.width=10, fig.height=10, fig.cap="Source: [New York Times database](https://www.nytimes.com/interactive/2021/us/covid-cases.html) of reports from state and local health agencies, Centers for Disease Control and Prevention • Notes: Chart shows deaths reported since universal vaccine eligibility on April 19, 2021. Vaccination rate is the percentage of the total population fully vaccinated as of Dec. 20, 2021."}
 
 
+p2 + geom_smooth(method = lm, se=FALSE) 
 
 
-annoyingtoworkwith <- ggplotly(p)
+```
+
+# Extra:
+
+Finally i made this using plotly.
+
+```{r plot, fig.width=10, fig.height=10, fig.cap="Source: [New York Times database](https://www.nytimes.com/interactive/2021/us/covid-cases.html) of reports from state and local health agencies, Centers for Disease Control and Prevention • Notes: Chart shows deaths reported since universal vaccine eligibility on April 19, 2021. Vaccination rate is the percentage of the total population fully vaccinated as of Dec. 20, 2021."}
+
+
+p <- df %>% 
+  ggplot(aes(x = fully_vaccinated_pct_of_pop, y = deaths_per_100k)) + 
+  
+  geom_point(aes(text = paste0(name,
+                           "<br>","Fully vaccinated: ",
+                           fully_vaccinated_pct_of_pop*100,"%",
+                           "<br>","Deaths per 100k: ", round(deaths_per_100k,2),
+                           "<br>", "Average monthly deaths ",
+                           "<br>", "Before universal availability: ", deaths_before,
+                           "<br>", "After universal availability: ", deaths)),color= "#6b9d92", fill = "#9abdb5", size=3) + 
+  
+  geom_smooth(method = lm, se = FALSE)+
+  
+  geom_text(aes(label = stateabb),
+            hjust=0.45, vjust=-0.45, size = 3) +
+  
+  labs(title = "Covid-19 deaths since universal adult vaccine eligibility compared with 
+       vaccination rates",
+       y = " Average monthly deaths per 100 000",
+       x = "Share of total population fully vaccinated") +
+  
+  scale_x_continuous(
+    labels = scales::percent, 
+    limits=c(0.45, 0.80),
+    breaks=seq(0.45, 0.80, by = 0.05),
+    expand = c(0,0)) + 
+  
+  scale_y_continuous(limits=c(0,20),
+                     expand = c(0,0))+
+  
+  theme_bw()+
+  
+  theme(
+    plot.title = element_text(size=14, vjust=3, 
+                                  face = "bold", hjust=0.4),
+        panel.border = element_rect(color = "gray50", linetype="dotted", size=0.5),
+    axis.title.y = element_text(vjust = 1.023, angle=0, size=8,
+                                margin=margin(l=15,r=-150)))
+
+
+
+annoyingtoworkwith <- ggplotly(p, highlight = "closest-x", tooltip = c("text"))
 
 annoyingtoworkwith <- layout(
   annoyingtoworkwith,
   title = list("<b>Covid-19 deaths since universal adult vaccine eligibility compared with
                vaccination rates</b>", font=list(size=12)),
 
-  margin = list(l=80, r=50, b=50, t=80))
+  margin = list(l=80, r=50, b=50, t=80),
+  hoverlabel = list(bgcolor = "white", bordercolor = "gray"))
+
+
+
+
+annoyingtoworkwith <- add_annotations(annoyingtoworkwith,
+    # x and y specify the coordinates of the text annotation
+    x = 0.48,
+    y = 19,
+    # xref and yref specify the reference coordinates for the arrow
+    xref = "x",
+    yref = "y",
+    ax = 0.55, 
+    ay = 17,
+    axref = "x",
+    ayref = "y",
+    # Text to be displayed in the annotation box
+    text = "Lower vaccination rate, \nhigher death rate",
+    # Changing the appearance of the arrow
+    arrowcolor = "black",
+    arrowsize=2,
+    arrowhead=2)
+
+
+
+annoyingtoworkwith <- add_annotations(annoyingtoworkwith,
+    x = 0.79,
+    y = 7,
+    xref = "x",
+    yref = "y",
+    ax = 0.72, 
+    ay = 9,
+    axref = "x",
+    ayref = "y",
+    text = "Higher vaccination rate,\nlower death rate",
+    arrowcolor = "black",
+    arrowsize=2,
+    arrowhead=2)
+
+
+
 
 annoyingtoworkwith
-
 ```

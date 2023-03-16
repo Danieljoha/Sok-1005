@@ -102,7 +102,9 @@ summary(lm(deaths_per_100k ~ fully_vaccinated_pct_of_pop, data = df))
 
 ```
 
-This gives us a coefficient that shows us that it estimates a -36.663 per per x, value this tells us that there would be 36.663 less in deaths per 100 000 for every 1% increase in vaccine coverage.
+This gives us a coefficient that shows us that it estimates a -0.37 per per x, value this tells us that there would be 0.37 less in deaths per 100 000 for every 1% increase in vaccine coverage.
+
+The intercept tells us that it would be roughly 31.15 deaths per 100 000 if there were no one vaccinated.
 
 ```{r, fig.width=10, fig.height=10, fig.cap="Source: [New York Times database](https://www.nytimes.com/interactive/2021/us/covid-cases.html) of reports from state and local health agencies, Centers for Disease Control and Prevention • Notes: Chart shows deaths reported since universal vaccine eligibility on April 19, 2021. Vaccination rate is the percentage of the total population fully vaccinated as of Dec. 20, 2021."}
 

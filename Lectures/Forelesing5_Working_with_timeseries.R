@@ -238,3 +238,7 @@ browseURL("https://slides.earo.me/rstudioconf19/#1")
 ##########################################################################
 # Q: Create a dataframe that is the weekly average prices and plot it
 ##########################################################################
+
+
+
+

@@ -2,10 +2,11 @@
 title: "Assignment_4"
 format: html
 editor: visual
-warning: true
-message: true
-echo: true
+warning: false
+message: false
+echo: false
 toc: true
+tof: true
 ---
 
 ```{r}
@@ -55,9 +56,9 @@ storedata <- read.csv("https://raw.githubusercontent.com/uit-sok-1005-v23/uit-so
 
 # Task 2
 
-In this task, feel free to use any API or package/library that downloads the data to your session. Use code and download daily stock prices for Exxon Mobil Corporation (XOM), traded at NYSE. The Yahoo! Finance site is a convenient place to find [the data](https://finance.yahoo.com/quote/XOM?p=XOM&.tsrc=fin-srch) . Use the Adjusted closing price from January 4th 2010 as the starting date. And calculate the monthly average using trading volume as a weight, and save this variable as  \"exxon\".
+In this task, feel free to use any API or package/library that downloads the data to your session. Use code and download daily stock prices for Exxon Mobil Corporation (XOM), traded at NYSE. The Yahoo! Finance site is a convenient place to find [the data](https://finance.yahoo.com/quote/XOM?p=XOM&.tsrc=fin-srch) . Use the Adjusted closing price from January 4th 2010 as the starting date. And calculate the monthly average using trading volume as a weight, and save this variable as  "exxon".
 
-Use code to download the daily Brent Crude Oil Price from [FRED](https://fred.stlouisfed.org/series/DCOILBRENTEU)  from January 4th 2010 as the starting date. And calculate the monthly arithmetic average. Save the monthly arithmetic average values as  \"oil\". 
+Use code to download the daily Brent Crude Oil Price from [FRED](https://fred.stlouisfed.org/series/DCOILBRENTEU)  from January 4th 2010 as the starting date. And calculate the monthly arithmetic average. Save the monthly arithmetic average values as  "oil". 
 
 In both variables, take December 2022, or 2022:12 for shorthand as a last data point.
 
@@ -106,9 +107,10 @@ rm(fredoil)
 rm(xom)
 ```
 
-Plot both variables, i.e., exxon and oil \" in the same plot window. Here, the x-axis should be the  \"date\" variable.  Comment on the plots. 
+Plot both variables, i.e., exxon and oil " in the same plot window. Here, the x-axis should be the  "date" variable.  Comment on the plots. 
 
 ```{r}
+#| fig-cap: Figure for Exxon share price and Oil price
 task2 %>% 
   ggplot(aes(x=date)) + 
   geom_line(aes(y=oil, color="Brent Crude Oil monthly average")) +
@@ -123,9 +125,10 @@ task2 %>%
 
 ```
 
-Now take \"exxon\" as a y-variable and \"oil\" as an x-variable. 
+Now take "exxon" as a y-variable and "oil" as an x-variable. 
 
 ```{r}
+#| fig-cap: Figure for exxon as y and oil as x
 task2 %>% 
   ggplot(aes(x=oil, y=exxon)) + 
   geom_line()+
@@ -133,14 +136,14 @@ task2 %>%
   geom_smooth(method=lm)
 ```
 
-Use R\'s  [lm() function](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/lm). Set the variable on the y-axis and x-axis, and specify the data set. 
+Use R's  [lm() function](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/lm). Set the variable on the y-axis and x-axis, and specify the data set. 
 
 ```{r}
 lm(exxon ~ oil, data = task2)
 
 ```
 
-After \"running\" the code, how do you interpret the estimated coefficients? 
+After "running" the code, how do you interpret the estimated coefficients? 
 
 The intercept coefficient shows the estimated value of exxon when oil is equal to 0, but it may now have a practical interpretation in this context since its unlikely for oil price to be 0.
 

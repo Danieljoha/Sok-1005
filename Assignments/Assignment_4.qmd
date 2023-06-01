@@ -4,7 +4,7 @@ author: "Daniel Nikolai Johannessen"
 format:
   html: 
     df-print: kable
-
+    self-contained: true
 editor: visual
 warning: false
 message: false

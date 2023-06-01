@@ -46,16 +46,15 @@ The projects are under Project
     <div style="width: 45%; position: relative;">
         <div class="content-overlay">
           <div class="text-overlay">Project</div>
-            <a href="/Project/index.html" class="larger">Full project</a>
+            <a href="/Sok-1005/Project/index.html" class="larger">Full project</a>
             <br>
-            <a href="/Project/3_11_Task1_SOK1005_Project_V23.html" class="larger">Task 1</a>
+            <a href="/Sok-1005/Project/3_11_Task1_SOK1005_Project_V23.html" class="larger">Task 1</a>
             <br>
-            <a href="/Project/3_11_Task2_3_4_SOK1005_Project_V23.html" class="larger">Tasks 2, 3 and 4</a>
+            <a href="/Sok-1005/Project/3_11_Task2_3_4_SOK1005_Project_V23.html" class="larger">Tasks 2, 3 and 4</a>
         </div>
     </div>
 </div>
 ```
-
 ## References
 
 These assignments and the project has been made with the help of the resources from the courseplan in SOK-1005 including the lectures given by Dejene Gizaw Kidane. Any and all errors are mine.

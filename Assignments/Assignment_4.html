@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Daniel Nikolai Johannessen">
+
+<title>Assignment_4</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Assignment_4_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Assignment_4_files/libs/quarto-html/quarto.js"></script>
+<script src="Assignment_4_files/libs/quarto-html/popper.min.js"></script>
+<script src="Assignment_4_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Assignment_4_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Assignment_4_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Assignment_4_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Assignment_4_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Assignment_4_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Assignment_4_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="Assignment_4_files/libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="Assignment_4_files/libs/plotly-binding-4.10.1/plotly.js"></script>
+<script src="Assignment_4_files/libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="Assignment_4_files/libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="Assignment_4_files/libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="Assignment_4_files/libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="Assignment_4_files/libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="Assignment_4_files/libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#task-1" id="toc-task-1" class="nav-link active" data-scroll-target="#task-1">Task 1</a></li>
+  <li><a href="#task-2" id="toc-task-2" class="nav-link" data-scroll-target="#task-2">Task 2</a></li>
+  <li><a href="#source-file" id="toc-source-file" class="nav-link" data-scroll-target="#source-file">Source file</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Assignment_4</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Daniel Nikolai Johannessen </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+
+</div>
+<section id="task-1" class="level1">
+<h1>Task 1</h1>
+<div class="cell">
+
+</div>
+<p>1: For the last 3 months of 2017, calculate the total Sales by month, for Region 1 and Region 9 in the Customer_Segment, Corporate, and Consumer. This output is Table 1.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Region</th>
+<th style="text-align: right;">Month</th>
+<th style="text-align: left;">Customer segment</th>
+<th style="text-align: right;">Total sales</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Region 1</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">Consumer</td>
+<td style="text-align: right;">815.790</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Region 1</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">Corporate</td>
+<td style="text-align: right;">295.060</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Region 1</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">Consumer</td>
+<td style="text-align: right;">9480.470</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Region 1</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">Corporate</td>
+<td style="text-align: right;">8564.840</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Region 1</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">Consumer</td>
+<td style="text-align: right;">210.060</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Region 1</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">Corporate</td>
+<td style="text-align: right;">13260.838</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Region 9</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">Consumer</td>
+<td style="text-align: right;">5908.890</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Region 9</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">Corporate</td>
+<td style="text-align: right;">16781.431</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Region 9</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">Consumer</td>
+<td style="text-align: right;">192.330</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Region 9</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">Corporate</td>
+<td style="text-align: right;">5463.130</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Region 9</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">Corporate</td>
+<td style="text-align: right;">9377.647</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>2: Make a plot of the monthly total Sales in Region 1 and Region 13 in 2015, 2016, and 2017. This output is Figure 1.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Assignment_4_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="768"></p>
+<p></p><figcaption class="figure-caption">Figure for monthly sales in Region 1 and 13 in 2015-2017</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>3: In Figure 1, identify the months where the total Sales in Region 13 is greater than the total Sales in Region 1. This output is Table 2.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Month</th>
+<th style="text-align: right;">Year</th>
+<th style="text-align: right;">Region 1</th>
+<th style="text-align: right;">Region 13</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">jun</td>
+<td style="text-align: right;">2015</td>
+<td style="text-align: right;">12844.97</td>
+<td style="text-align: right;">32306.88</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">aug</td>
+<td style="text-align: right;">2015</td>
+<td style="text-align: right;">2266.96</td>
+<td style="text-align: right;">13985.22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">okt</td>
+<td style="text-align: right;">2015</td>
+<td style="text-align: right;">11058.13</td>
+<td style="text-align: right;">14885.24</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">nov</td>
+<td style="text-align: right;">2015</td>
+<td style="text-align: right;">13290.26</td>
+<td style="text-align: right;">49685.99</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">des</td>
+<td style="text-align: right;">2015</td>
+<td style="text-align: right;">11048.17</td>
+<td style="text-align: right;">19514.99</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">jan</td>
+<td style="text-align: right;">2016</td>
+<td style="text-align: right;">2362.43</td>
+<td style="text-align: right;">10407.92</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">feb</td>
+<td style="text-align: right;">2016</td>
+<td style="text-align: right;">33085.29</td>
+<td style="text-align: right;">55631.95</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">mai</td>
+<td style="text-align: right;">2016</td>
+<td style="text-align: right;">22068.67</td>
+<td style="text-align: right;">22821.70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">des</td>
+<td style="text-align: right;">2016</td>
+<td style="text-align: right;">17020.27</td>
+<td style="text-align: right;">26889.71</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">jun</td>
+<td style="text-align: right;">2017</td>
+<td style="text-align: right;">10335.31</td>
+<td style="text-align: right;">17430.46</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>4: Find the average Profit per Customer_Segment and Product_Category in 2017, for all regions except Region 3, 5 and 8. What segment produced the highest average profit? This output is Table 3.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Customer segment</th>
+<th style="text-align: left;">Product category</th>
+<th style="text-align: right;">Average profit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Small Business</td>
+<td style="text-align: left;">Technology</td>
+<td style="text-align: right;">544.442933</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Corporate</td>
+<td style="text-align: left;">Technology</td>
+<td style="text-align: right;">413.915696</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Home Office</td>
+<td style="text-align: left;">Technology</td>
+<td style="text-align: right;">271.119368</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Consumer</td>
+<td style="text-align: left;">Technology</td>
+<td style="text-align: right;">223.123188</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Corporate</td>
+<td style="text-align: left;">Office Supplies</td>
+<td style="text-align: right;">164.827620</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Consumer</td>
+<td style="text-align: left;">Office Supplies</td>
+<td style="text-align: right;">107.459323</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Small Business</td>
+<td style="text-align: left;">Office Supplies</td>
+<td style="text-align: right;">93.995230</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Home Office</td>
+<td style="text-align: left;">Office Supplies</td>
+<td style="text-align: right;">71.364500</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Consumer</td>
+<td style="text-align: left;">Furniture</td>
+<td style="text-align: right;">19.551912</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Small Business</td>
+<td style="text-align: left;">Furniture</td>
+<td style="text-align: right;">16.874722</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Home Office</td>
+<td style="text-align: left;">Furniture</td>
+<td style="text-align: right;">7.511408</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Corporate</td>
+<td style="text-align: left;">Furniture</td>
+<td style="text-align: right;">-88.222121</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="task-2" class="level1">
+<h1>Task 2</h1>
+<p>In this task, feel free to use any API or package/library that downloads the data to your session. Use code and download daily stock prices for Exxon Mobil Corporation (XOM), traded at NYSE. The Yahoo! Finance site is a convenient place to find <a href="https://finance.yahoo.com/quote/XOM?p=XOM&amp;.tsrc=fin-srch">the data</a> . Use the Adjusted closing price from January 4th 2010 as the starting date. And calculate the monthly average using trading volume as a weight, and save this variable as&nbsp; “exxon”.</p>
+<p>Use code to download the daily Brent Crude Oil Price from <a href="https://fred.stlouisfed.org/series/DCOILBRENTEU">FRED</a>&nbsp; from January 4th 2010 as the starting date. And calculate the monthly arithmetic average. Save the monthly arithmetic average values as&nbsp; “oil”.&nbsp;</p>
+<p>In both variables, take December 2022, or 2022:12 for shorthand as a last data point.</p>
+<div class="cell">
+
+</div>
+<p>Plot both variables, i.e., exxon and oil ” in the same plot window. Here, the x-axis should be the&nbsp; “date” variable.&nbsp; Comment on the plots.&nbsp;</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-5ace4e911b0a063824cf" style="width:100%;height:568px;"></div>
+<script type="application/json" data-for="htmlwidget-5ace4e911b0a063824cf">{"x":{"visdat":{"de5465d022ee":["function () ","plotlyVisDat"]},"cur_data":"de5465d022ee","attrs":{"de5465d022ee":{"x":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"y":{},"type":"scatter","mode":"lines","name":"Brent Crude Oil monthly arithmetic average","text":{},"hoverinfo":"text","line":{"color":"#8fc3f8"},"inherit":true},"de5465d022ee.1":{"x":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"y":{},"name":"Exxon monthly average share price weighted by trading volume","type":"scatter","mode":"lines","text":{},"hoverinfo":"text","line":{"color":"#567595"},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"tickangle":-45,"title":"","nticks":20},"yaxis":{"domain":[0,1],"automargin":true,"title":"","tickprefix":"$"},"legend":{"y":-0.3,"x":0.15},"title":"Brent crude oil prices compared to Exxon share price","hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displayModeBar":false},"data":[{"x":["2010-01-01","2010-02-01","2010-03-01","2010-04-01","2010-05-01","2010-06-01","2010-07-01","2010-08-01","2010-09-01","2010-10-01","2010-11-01","2010-12-01","2011-01-01","2011-02-01","2011-03-01","2011-04-01","2011-05-01","2011-06-01","2011-07-01","2011-08-01","2011-09-01","2011-10-01","2011-11-01","2011-12-01","2012-01-01","2012-02-01","2012-03-01","2012-04-01","2012-05-01","2012-06-01","2012-07-01","2012-08-01","2012-09-01","2012-10-01","2012-11-01","2012-12-01","2013-01-01","2013-02-01","2013-03-01","2013-04-01","2013-05-01","2013-06-01","2013-07-01","2013-08-01","2013-09-01","2013-10-01","2013-11-01","2013-12-01","2014-01-01","2014-02-01","2014-03-01","2014-04-01","2014-05-01","2014-06-01","2014-07-01","2014-08-01","2014-09-01","2014-10-01","2014-11-01","2014-12-01","2015-01-01","2015-02-01","2015-03-01","2015-04-01","2015-05-01","2015-06-01","2015-07-01","2015-08-01","2015-09-01","2015-10-01","2015-11-01","2015-12-01","2016-01-01","2016-02-01","2016-03-01","2016-04-01","2016-05-01","2016-06-01","2016-07-01","2016-08-01","2016-09-01","2016-10-01","2016-11-01","2016-12-01","2017-01-01","2017-02-01","2017-03-01","2017-04-01","2017-05-01","2017-06-01","2017-07-01","2017-08-01","2017-09-01","2017-10-01","2017-11-01","2017-12-01","2018-01-01","2018-02-01","2018-03-01","2018-04-01","2018-05-01","2018-06-01","2018-07-01","2018-08-01","2018-09-01","2018-10-01","2018-11-01","2018-12-01","2019-01-01","2019-02-01","2019-03-01","2019-04-01","2019-05-01","2019-06-01","2019-07-01","2019-08-01","2019-09-01","2019-10-01","2019-11-01","2019-12-01","2020-01-01","2020-02-01","2020-03-01","2020-04-01","2020-05-01","2020-06-01","2020-07-01","2020-08-01","2020-09-01","2020-10-01","2020-11-01","2020-12-01","2021-01-01","2021-02-01","2021-03-01","2021-04-01","2021-05-01","2021-06-01","2021-07-01","2021-08-01","2021-09-01","2021-10-01","2021-11-01","2021-12-01","2022-01-01","2022-02-01","2022-03-01","2022-04-01","2022-05-01","2022-06-01","2022-07-01","2022-08-01","2022-09-01","2022-10-01","2022-11-01","2022-12-01"],"y":[76.1673684210526,73.7521052631579,78.8273913043478,84.817619047619,75.9455,74.7609090909091,75.58,77.0395454545455,77.8404761904762,82.6647619047619,85.2747619047619,91.4468181818182,96.5235,103.716315789474,114.64347826087,123.258888888889,114.989047619048,113.833181818182,116.9735,110.219545454545,112.83380952381,109.55,110.768095238095,107.8705,110.686,119.327,125.445454545455,119.421666666667,110.339523809524,95.1557142857143,102.618571428571,113.356086956522,112.863684210526,111.710869565217,109.058571428571,109.494,112.96,116.050526315789,108.474,102.248181818182,102.558636363636,102.9195,107.933181818182,111.280454545455,111.5965,109.07652173913,107.792,110.756666666667,108.117727272727,108.900526315789,107.480952380952,107.755238095238,109.539090909091,111.795238095238,106.768181818182,101.608095238095,97.0914285714286,87.4252173913043,79.4378947368421,62.335,47.7595,58.0955,55.8854545454545,59.5242857142857,64.075,61.4777272727273,56.5613043478261,46.515,47.6231818181818,48.43,44.267619047619,38.0054545454545,30.6995,32.1815,38.2104545454545,41.5833333333333,46.742380952381,48.2472727272727,44.9519047619048,45.8430434782609,46.5677272727273,49.5223809523809,44.7340909090909,53.3085,54.5766666666667,54.8695,51.5891304347826,52.3078947368421,50.3265217391304,46.3681818181818,48.4785714285714,51.704347826087,56.1528571428571,57.5077272727273,62.7140909090909,64.3736842105263,69.0772727272727,65.3175,66.0166666666667,72.106,76.9752380952381,74.4047619047619,74.2540909090909,72.5282608695652,78.891,81.0321739130435,64.7481818181818,57.3623529411765,59.4095454545455,63.9605,66.1385714285714,71.2333333333333,71.3177272727273,64.2205,63.9191304347826,59.0418181818182,62.8266666666667,59.7130434782609,63.2119047619048,67.2171428571429,63.6454545454545,55.657,32.0113636363636,18.3785,29.3789473684211,40.2668181818182,43.2421739130435,44.736,40.9095454545455,40.1895454545455,42.692380952381,49.9936363636364,54.774,62.2765,65.41,64.8065,68.5342105263158,73.1640909090909,75.1659090909091,70.7471428571429,74.4886363636364,83.5380952380952,81.05,74.1704761904762,86.5052380952381,97.129,117.245217391304,104.575263157895,113.337619047619,122.710952380952,111.925714285714,100.446363636364,89.7647619047619,93.3319047619048,91.4154545454546,80.924],"type":"scatter","mode":"lines","name":"Brent Crude Oil monthly arithmetic average","text":["Brent crude oil price<br>Januar , 2010<br>Oil price per barrel: $76.17","Brent crude oil price<br>Februar , 2010<br>Oil price per barrel: $73.75","Brent crude oil price<br>Mars , 2010<br>Oil price per barrel: $78.83","Brent crude oil price<br>April , 2010<br>Oil price per barrel: $84.82","Brent crude oil price<br>Mai , 2010<br>Oil price per barrel: $75.95","Brent crude oil price<br>Juni , 2010<br>Oil price per barrel: $74.76","Brent crude oil price<br>Juli , 2010<br>Oil price per barrel: $75.58","Brent crude oil price<br>August , 2010<br>Oil price per barrel: $77.04","Brent crude oil price<br>September , 2010<br>Oil price per barrel: $77.84","Brent crude oil price<br>Oktober , 2010<br>Oil price per barrel: $82.66","Brent crude oil price<br>November , 2010<br>Oil price per barrel: $85.27","Brent crude oil price<br>Desember , 2010<br>Oil price per barrel: $91.45","Brent crude oil price<br>Januar , 2011<br>Oil price per barrel: $96.52","Brent crude oil price<br>Februar , 2011<br>Oil price per barrel: $103.72","Brent crude oil price<br>Mars , 2011<br>Oil price per barrel: $114.64","Brent crude oil price<br>April , 2011<br>Oil price per barrel: $123.26","Brent crude oil price<br>Mai , 2011<br>Oil price per barrel: $114.99","Brent crude oil price<br>Juni , 2011<br>Oil price per barrel: $113.83","Brent crude oil price<br>Juli , 2011<br>Oil price per barrel: $116.97","Brent crude oil price<br>August , 2011<br>Oil price per barrel: $110.22","Brent crude oil price<br>September , 2011<br>Oil price per barrel: $112.83","Brent crude oil price<br>Oktober , 2011<br>Oil price per barrel: $109.55","Brent crude oil price<br>November , 2011<br>Oil price per barrel: $110.77","Brent crude oil price<br>Desember , 2011<br>Oil price per barrel: $107.87","Brent crude oil price<br>Januar , 2012<br>Oil price per barrel: $110.69","Brent crude oil price<br>Februar , 2012<br>Oil price per barrel: $119.33","Brent crude oil price<br>Mars , 2012<br>Oil price per barrel: $125.45","Brent crude oil price<br>April , 2012<br>Oil price per barrel: $119.42","Brent crude oil price<br>Mai , 2012<br>Oil price per barrel: $110.34","Brent crude oil price<br>Juni , 2012<br>Oil price per barrel: $95.16","Brent crude oil price<br>Juli , 2012<br>Oil price per barrel: $102.62","Brent crude oil price<br>August , 2012<br>Oil price per barrel: $113.36","Brent crude oil price<br>September , 2012<br>Oil price per barrel: $112.86","Brent crude oil price<br>Oktober , 2012<br>Oil price per barrel: $111.71","Brent crude oil price<br>November , 2012<br>Oil price per barrel: $109.06","Brent crude oil price<br>Desember , 2012<br>Oil price per barrel: $109.49","Brent crude oil price<br>Januar , 2013<br>Oil price per barrel: $112.96","Brent crude oil price<br>Februar , 2013<br>Oil price per barrel: $116.05","Brent crude oil price<br>Mars , 2013<br>Oil price per barrel: $108.47","Brent crude oil price<br>April , 2013<br>Oil price per barrel: $102.25","Brent crude oil price<br>Mai , 2013<br>Oil price per barrel: $102.56","Brent crude oil price<br>Juni , 2013<br>Oil price per barrel: $102.92","Brent crude oil price<br>Juli , 2013<br>Oil price per barrel: $107.93","Brent crude oil price<br>August , 2013<br>Oil price per barrel: $111.28","Brent crude oil price<br>September , 2013<br>Oil price per barrel: $111.6","Brent crude oil price<br>Oktober , 2013<br>Oil price per barrel: $109.08","Brent crude oil price<br>November , 2013<br>Oil price per barrel: $107.79","Brent crude oil price<br>Desember , 2013<br>Oil price per barrel: $110.76","Brent crude oil price<br>Januar , 2014<br>Oil price per barrel: $108.12","Brent crude oil price<br>Februar , 2014<br>Oil price per barrel: $108.9","Brent crude oil price<br>Mars , 2014<br>Oil price per barrel: $107.48","Brent crude oil price<br>April , 2014<br>Oil price per barrel: $107.76","Brent crude oil price<br>Mai , 2014<br>Oil price per barrel: $109.54","Brent crude oil price<br>Juni , 2014<br>Oil price per barrel: $111.8","Brent crude oil price<br>Juli , 2014<br>Oil price per barrel: $106.77","Brent crude oil price<br>August , 2014<br>Oil price per barrel: $101.61","Brent crude oil price<br>September , 2014<br>Oil price per barrel: $97.09","Brent crude oil price<br>Oktober , 2014<br>Oil price per barrel: $87.43","Brent crude oil price<br>November , 2014<br>Oil price per barrel: $79.44","Brent crude oil price<br>Desember , 2014<br>Oil price per barrel: $62.34","Brent crude oil price<br>Januar , 2015<br>Oil price per barrel: $47.76","Brent crude oil price<br>Februar , 2015<br>Oil price per barrel: $58.1","Brent crude oil price<br>Mars , 2015<br>Oil price per barrel: $55.89","Brent crude oil price<br>April , 2015<br>Oil price per barrel: $59.52","Brent crude oil price<br>Mai , 2015<br>Oil price per barrel: $64.08","Brent crude oil price<br>Juni , 2015<br>Oil price per barrel: $61.48","Brent crude oil price<br>Juli , 2015<br>Oil price per barrel: $56.56","Brent crude oil price<br>August , 2015<br>Oil price per barrel: $46.52","Brent crude oil price<br>September , 2015<br>Oil price per barrel: $47.62","Brent crude oil price<br>Oktober , 2015<br>Oil price per barrel: $48.43","Brent crude oil price<br>November , 2015<br>Oil price per barrel: $44.27","Brent crude oil price<br>Desember , 2015<br>Oil price per barrel: $38.01","Brent crude oil price<br>Januar , 2016<br>Oil price per barrel: $30.7","Brent crude oil price<br>Februar , 2016<br>Oil price per barrel: $32.18","Brent crude oil price<br>Mars , 2016<br>Oil price per barrel: $38.21","Brent crude oil price<br>April , 2016<br>Oil price per barrel: $41.58","Brent crude oil price<br>Mai , 2016<br>Oil price per barrel: $46.74","Brent crude oil price<br>Juni , 2016<br>Oil price per barrel: $48.25","Brent crude oil price<br>Juli , 2016<br>Oil price per barrel: $44.95","Brent crude oil price<br>August , 2016<br>Oil price per barrel: $45.84","Brent crude oil price<br>September , 2016<br>Oil price per barrel: $46.57","Brent crude oil price<br>Oktober , 2016<br>Oil price per barrel: $49.52","Brent crude oil price<br>November , 2016<br>Oil price per barrel: $44.73","Brent crude oil price<br>Desember , 2016<br>Oil price per barrel: $53.31","Brent crude oil price<br>Januar , 2017<br>Oil price per barrel: $54.58","Brent crude oil price<br>Februar , 2017<br>Oil price per barrel: $54.87","Brent crude oil price<br>Mars , 2017<br>Oil price per barrel: $51.59","Brent crude oil price<br>April , 2017<br>Oil price per barrel: $52.31","Brent crude oil price<br>Mai , 2017<br>Oil price per barrel: $50.33","Brent crude oil price<br>Juni , 2017<br>Oil price per barrel: $46.37","Brent crude oil price<br>Juli , 2017<br>Oil price per barrel: $48.48","Brent crude oil price<br>August , 2017<br>Oil price per barrel: $51.7","Brent crude oil price<br>September , 2017<br>Oil price per barrel: $56.15","Brent crude oil price<br>Oktober , 2017<br>Oil price per barrel: $57.51","Brent crude oil price<br>November , 2017<br>Oil price per barrel: $62.71","Brent crude oil price<br>Desember , 2017<br>Oil price per barrel: $64.37","Brent crude oil price<br>Januar , 2018<br>Oil price per barrel: $69.08","Brent crude oil price<br>Februar , 2018<br>Oil price per barrel: $65.32","Brent crude oil price<br>Mars , 2018<br>Oil price per barrel: $66.02","Brent crude oil price<br>April , 2018<br>Oil price per barrel: $72.11","Brent crude oil price<br>Mai , 2018<br>Oil price per barrel: $76.98","Brent crude oil price<br>Juni , 2018<br>Oil price per barrel: $74.4","Brent crude oil price<br>Juli , 2018<br>Oil price per barrel: $74.25","Brent crude oil price<br>August , 2018<br>Oil price per barrel: $72.53","Brent crude oil price<br>September , 2018<br>Oil price per barrel: $78.89","Brent crude oil price<br>Oktober , 2018<br>Oil price per barrel: $81.03","Brent crude oil price<br>November , 2018<br>Oil price per barrel: $64.75","Brent crude oil price<br>Desember , 2018<br>Oil price per barrel: $57.36","Brent crude oil price<br>Januar , 2019<br>Oil price per barrel: $59.41","Brent crude oil price<br>Februar , 2019<br>Oil price per barrel: $63.96","Brent crude oil price<br>Mars , 2019<br>Oil price per barrel: $66.14","Brent crude oil price<br>April , 2019<br>Oil price per barrel: $71.23","Brent crude oil price<br>Mai , 2019<br>Oil price per barrel: $71.32","Brent crude oil price<br>Juni , 2019<br>Oil price per barrel: $64.22","Brent crude oil price<br>Juli , 2019<br>Oil price per barrel: $63.92","Brent crude oil price<br>August , 2019<br>Oil price per barrel: $59.04","Brent crude oil price<br>September , 2019<br>Oil price per barrel: $62.83","Brent crude oil price<br>Oktober , 2019<br>Oil price per barrel: $59.71","Brent crude oil price<br>November , 2019<br>Oil price per barrel: $63.21","Brent crude oil price<br>Desember , 2019<br>Oil price per barrel: $67.22","Brent crude oil price<br>Januar , 2020<br>Oil price per barrel: $63.65","Brent crude oil price<br>Februar , 2020<br>Oil price per barrel: $55.66","Brent crude oil price<br>Mars , 2020<br>Oil price per barrel: $32.01","Brent crude oil price<br>April , 2020<br>Oil price per barrel: $18.38","Brent crude oil price<br>Mai , 2020<br>Oil price per barrel: $29.38","Brent crude oil price<br>Juni , 2020<br>Oil price per barrel: $40.27","Brent crude oil price<br>Juli , 2020<br>Oil price per barrel: $43.24","Brent crude oil price<br>August , 2020<br>Oil price per barrel: $44.74","Brent crude oil price<br>September , 2020<br>Oil price per barrel: $40.91","Brent crude oil price<br>Oktober , 2020<br>Oil price per barrel: $40.19","Brent crude oil price<br>November , 2020<br>Oil price per barrel: $42.69","Brent crude oil price<br>Desember , 2020<br>Oil price per barrel: $49.99","Brent crude oil price<br>Januar , 2021<br>Oil price per barrel: $54.77","Brent crude oil price<br>Februar , 2021<br>Oil price per barrel: $62.28","Brent crude oil price<br>Mars , 2021<br>Oil price per barrel: $65.41","Brent crude oil price<br>April , 2021<br>Oil price per barrel: $64.81","Brent crude oil price<br>Mai , 2021<br>Oil price per barrel: $68.53","Brent crude oil price<br>Juni , 2021<br>Oil price per barrel: $73.16","Brent crude oil price<br>Juli , 2021<br>Oil price per barrel: $75.17","Brent crude oil price<br>August , 2021<br>Oil price per barrel: $70.75","Brent crude oil price<br>September , 2021<br>Oil price per barrel: $74.49","Brent crude oil price<br>Oktober , 2021<br>Oil price per barrel: $83.54","Brent crude oil price<br>November , 2021<br>Oil price per barrel: $81.05","Brent crude oil price<br>Desember , 2021<br>Oil price per barrel: $74.17","Brent crude oil price<br>Januar , 2022<br>Oil price per barrel: $86.51","Brent crude oil price<br>Februar , 2022<br>Oil price per barrel: $97.13","Brent crude oil price<br>Mars , 2022<br>Oil price per barrel: $117.25","Brent crude oil price<br>April , 2022<br>Oil price per barrel: $104.58","Brent crude oil price<br>Mai , 2022<br>Oil price per barrel: $113.34","Brent crude oil price<br>Juni , 2022<br>Oil price per barrel: $122.71","Brent crude oil price<br>Juli , 2022<br>Oil price per barrel: $111.93","Brent crude oil price<br>August , 2022<br>Oil price per barrel: $100.45","Brent crude oil price<br>September , 2022<br>Oil price per barrel: $89.76","Brent crude oil price<br>Oktober , 2022<br>Oil price per barrel: $93.33","Brent crude oil price<br>November , 2022<br>Oil price per barrel: $91.42","Brent crude oil price<br>Desember , 2022<br>Oil price per barrel: $80.92"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"line":{"color":"#8fc3f8"},"marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2010-01-01","2010-02-01","2010-03-01","2010-04-01","2010-05-01","2010-06-01","2010-07-01","2010-08-01","2010-09-01","2010-10-01","2010-11-01","2010-12-01","2011-01-01","2011-02-01","2011-03-01","2011-04-01","2011-05-01","2011-06-01","2011-07-01","2011-08-01","2011-09-01","2011-10-01","2011-11-01","2011-12-01","2012-01-01","2012-02-01","2012-03-01","2012-04-01","2012-05-01","2012-06-01","2012-07-01","2012-08-01","2012-09-01","2012-10-01","2012-11-01","2012-12-01","2013-01-01","2013-02-01","2013-03-01","2013-04-01","2013-05-01","2013-06-01","2013-07-01","2013-08-01","2013-09-01","2013-10-01","2013-11-01","2013-12-01","2014-01-01","2014-02-01","2014-03-01","2014-04-01","2014-05-01","2014-06-01","2014-07-01","2014-08-01","2014-09-01","2014-10-01","2014-11-01","2014-12-01","2015-01-01","2015-02-01","2015-03-01","2015-04-01","2015-05-01","2015-06-01","2015-07-01","2015-08-01","2015-09-01","2015-10-01","2015-11-01","2015-12-01","2016-01-01","2016-02-01","2016-03-01","2016-04-01","2016-05-01","2016-06-01","2016-07-01","2016-08-01","2016-09-01","2016-10-01","2016-11-01","2016-12-01","2017-01-01","2017-02-01","2017-03-01","2017-04-01","2017-05-01","2017-06-01","2017-07-01","2017-08-01","2017-09-01","2017-10-01","2017-11-01","2017-12-01","2018-01-01","2018-02-01","2018-03-01","2018-04-01","2018-05-01","2018-06-01","2018-07-01","2018-08-01","2018-09-01","2018-10-01","2018-11-01","2018-12-01","2019-01-01","2019-02-01","2019-03-01","2019-04-01","2019-05-01","2019-06-01","2019-07-01","2019-08-01","2019-09-01","2019-10-01","2019-11-01","2019-12-01","2020-01-01","2020-02-01","2020-03-01","2020-04-01","2020-05-01","2020-06-01","2020-07-01","2020-08-01","2020-09-01","2020-10-01","2020-11-01","2020-12-01","2021-01-01","2021-02-01","2021-03-01","2021-04-01","2021-05-01","2021-06-01","2021-07-01","2021-08-01","2021-09-01","2021-10-01","2021-11-01","2021-12-01","2022-01-01","2022-02-01","2022-03-01","2022-04-01","2022-05-01","2022-06-01","2022-07-01","2022-08-01","2022-09-01","2022-10-01","2022-11-01","2022-12-01"],"y":[40.5294064350409,39.2749883640519,40.0883648297869,41.1389429248971,37.9931662121674,36.4870159902768,35.5941760418362,36.7910483332794,37.3552535620352,39.6445856898874,42.6938659229168,44.2941721237854,47.5992568481292,52.0066211884534,51.1419393536398,52.6669193095863,51.059983251136,49.4492329397213,51.2415023876302,45.3296344735575,45.139937200612,48.2684720662975,48.7776928569251,51.1081046795368,53.9640186450485,53.9112465216928,54.3801756794761,53.6933067853082,52.2848402165264,52.0325008792403,54.361130976772,56.0471809566909,58.0885895084643,58.6720728495456,56.7210777017797,56.6137383228176,57.8877941838536,57.5565614352708,57.8868910256077,57.2840875949653,59.3841017512986,58.9075763921642,60.9346112098226,58.4324715962565,57.7620622849134,57.2945750347183,61.6351804129603,64.306971028558,64.5905310585142,61.7202822029005,63.2465202087722,66.0134905811709,68.0754592196278,68.4066218401329,68.8301745901723,66.7851062846566,65.2344806364297,62.6775990632041,64.556970793782,62.0986612478721,61.4182991284412,62.113719768528,58.3898109337656,59.198014517944,60.0423824712124,58.4063986016634,56.5398225607355,52.0822480311661,50.939542622355,55.8075482951027,57.6999295771447,54.6318366026178,53.5791390373465,56.7425984713302,59.0749764138833,60.7645649989004,63.7581320406543,64.8682281789753,66.5379322855039,62.9460501095091,61.7243675434311,62.4481542606859,62.3031453421285,65.4871652482867,62.9588711475642,60.3245941485735,60.463540727295,60.1829612778771,60.7068126234563,60.6165056035722,59.7360163075632,58.2585390697584,59.8762636828909,62.0496825403191,62.0862799344046,62.8891285751643,66.0315392852808,59.464002866668,56.8750554753492,59.1022856235472,61.4821793146286,62.9509087085,63.652552798264,61.8031573085383,65.2266935537618,63.6036722561005,62.2994806903623,57.1971976807186,56.4227434267838,60.8878226303774,63.9684568107129,64.9418548269533,60.5311143551237,60.7106732762827,61.0449364546679,56.51348447992,58.4896477647091,55.7154324074186,57.4035972907145,57.3736303328588,55.6214533209405,47.672496516569,33.0752968819403,35.2416401683557,37.6268453618131,40.871215767683,36.9851417309096,36.4556945059913,32.0523728952605,29.2141006456471,32.5408522711388,37.4211326585406,41.4167318844698,46.4497546877434,52.6827465940947,51.295666647376,54.9632711276914,57.4805989741358,54.1997457862016,51.927733521072,52.4725391979534,58.406986954471,59.6877716495523,57.8556790545519,67.6725127327192,75.2936519095686,78.9450414976399,81.5529590422712,87.2981760612195,90.2278281188658,84.4488102070103,91.09802619549,89.8096736008001,100.008639721052,109.780833699285,104.660342464988],"name":"Exxon monthly average share price weighted by trading volume","type":"scatter","mode":"lines","text":["Exxon share price<br>Januar , 2010<br>Share price: $40.53","Exxon share price<br>Februar , 2010<br>Share price: $39.27","Exxon share price<br>Mars , 2010<br>Share price: $40.09","Exxon share price<br>April , 2010<br>Share price: $41.14","Exxon share price<br>Mai , 2010<br>Share price: $37.99","Exxon share price<br>Juni , 2010<br>Share price: $36.49","Exxon share price<br>Juli , 2010<br>Share price: $35.59","Exxon share price<br>August , 2010<br>Share price: $36.79","Exxon share price<br>September , 2010<br>Share price: $37.36","Exxon share price<br>Oktober , 2010<br>Share price: $39.64","Exxon share price<br>November , 2010<br>Share price: $42.69","Exxon share price<br>Desember , 2010<br>Share price: $44.29","Exxon share price<br>Januar , 2011<br>Share price: $47.6","Exxon share price<br>Februar , 2011<br>Share price: $52.01","Exxon share price<br>Mars , 2011<br>Share price: $51.14","Exxon share price<br>April , 2011<br>Share price: $52.67","Exxon share price<br>Mai , 2011<br>Share price: $51.06","Exxon share price<br>Juni , 2011<br>Share price: $49.45","Exxon share price<br>Juli , 2011<br>Share price: $51.24","Exxon share price<br>August , 2011<br>Share price: $45.33","Exxon share price<br>September , 2011<br>Share price: $45.14","Exxon share price<br>Oktober , 2011<br>Share price: $48.27","Exxon share price<br>November , 2011<br>Share price: $48.78","Exxon share price<br>Desember , 2011<br>Share price: $51.11","Exxon share price<br>Januar , 2012<br>Share price: $53.96","Exxon share price<br>Februar , 2012<br>Share price: $53.91","Exxon share price<br>Mars , 2012<br>Share price: $54.38","Exxon share price<br>April , 2012<br>Share price: $53.69","Exxon share price<br>Mai , 2012<br>Share price: $52.28","Exxon share price<br>Juni , 2012<br>Share price: $52.03","Exxon share price<br>Juli , 2012<br>Share price: $54.36","Exxon share price<br>August , 2012<br>Share price: $56.05","Exxon share price<br>September , 2012<br>Share price: $58.09","Exxon share price<br>Oktober , 2012<br>Share price: $58.67","Exxon share price<br>November , 2012<br>Share price: $56.72","Exxon share price<br>Desember , 2012<br>Share price: $56.61","Exxon share price<br>Januar , 2013<br>Share price: $57.89","Exxon share price<br>Februar , 2013<br>Share price: $57.56","Exxon share price<br>Mars , 2013<br>Share price: $57.89","Exxon share price<br>April , 2013<br>Share price: $57.28","Exxon share price<br>Mai , 2013<br>Share price: $59.38","Exxon share price<br>Juni , 2013<br>Share price: $58.91","Exxon share price<br>Juli , 2013<br>Share price: $60.93","Exxon share price<br>August , 2013<br>Share price: $58.43","Exxon share price<br>September , 2013<br>Share price: $57.76","Exxon share price<br>Oktober , 2013<br>Share price: $57.29","Exxon share price<br>November , 2013<br>Share price: $61.64","Exxon share price<br>Desember , 2013<br>Share price: $64.31","Exxon share price<br>Januar , 2014<br>Share price: $64.59","Exxon share price<br>Februar , 2014<br>Share price: $61.72","Exxon share price<br>Mars , 2014<br>Share price: $63.25","Exxon share price<br>April , 2014<br>Share price: $66.01","Exxon share price<br>Mai , 2014<br>Share price: $68.08","Exxon share price<br>Juni , 2014<br>Share price: $68.41","Exxon share price<br>Juli , 2014<br>Share price: $68.83","Exxon share price<br>August , 2014<br>Share price: $66.79","Exxon share price<br>September , 2014<br>Share price: $65.23","Exxon share price<br>Oktober , 2014<br>Share price: $62.68","Exxon share price<br>November , 2014<br>Share price: $64.56","Exxon share price<br>Desember , 2014<br>Share price: $62.1","Exxon share price<br>Januar , 2015<br>Share price: $61.42","Exxon share price<br>Februar , 2015<br>Share price: $62.11","Exxon share price<br>Mars , 2015<br>Share price: $58.39","Exxon share price<br>April , 2015<br>Share price: $59.2","Exxon share price<br>Mai , 2015<br>Share price: $60.04","Exxon share price<br>Juni , 2015<br>Share price: $58.41","Exxon share price<br>Juli , 2015<br>Share price: $56.54","Exxon share price<br>August , 2015<br>Share price: $52.08","Exxon share price<br>September , 2015<br>Share price: $50.94","Exxon share price<br>Oktober , 2015<br>Share price: $55.81","Exxon share price<br>November , 2015<br>Share price: $57.7","Exxon share price<br>Desember , 2015<br>Share price: $54.63","Exxon share price<br>Januar , 2016<br>Share price: $53.58","Exxon share price<br>Februar , 2016<br>Share price: $56.74","Exxon share price<br>Mars , 2016<br>Share price: $59.07","Exxon share price<br>April , 2016<br>Share price: $60.76","Exxon share price<br>Mai , 2016<br>Share price: $63.76","Exxon share price<br>Juni , 2016<br>Share price: $64.87","Exxon share price<br>Juli , 2016<br>Share price: $66.54","Exxon share price<br>August , 2016<br>Share price: $62.95","Exxon share price<br>September , 2016<br>Share price: $61.72","Exxon share price<br>Oktober , 2016<br>Share price: $62.45","Exxon share price<br>November , 2016<br>Share price: $62.3","Exxon share price<br>Desember , 2016<br>Share price: $65.49","Exxon share price<br>Januar , 2017<br>Share price: $62.96","Exxon share price<br>Februar , 2017<br>Share price: $60.32","Exxon share price<br>Mars , 2017<br>Share price: $60.46","Exxon share price<br>April , 2017<br>Share price: $60.18","Exxon share price<br>Mai , 2017<br>Share price: $60.71","Exxon share price<br>Juni , 2017<br>Share price: $60.62","Exxon share price<br>Juli , 2017<br>Share price: $59.74","Exxon share price<br>August , 2017<br>Share price: $58.26","Exxon share price<br>September , 2017<br>Share price: $59.88","Exxon share price<br>Oktober , 2017<br>Share price: $62.05","Exxon share price<br>November , 2017<br>Share price: $62.09","Exxon share price<br>Desember , 2017<br>Share price: $62.89","Exxon share price<br>Januar , 2018<br>Share price: $66.03","Exxon share price<br>Februar , 2018<br>Share price: $59.46","Exxon share price<br>Mars , 2018<br>Share price: $56.88","Exxon share price<br>April , 2018<br>Share price: $59.1","Exxon share price<br>Mai , 2018<br>Share price: $61.48","Exxon share price<br>Juni , 2018<br>Share price: $62.95","Exxon share price<br>Juli , 2018<br>Share price: $63.65","Exxon share price<br>August , 2018<br>Share price: $61.8","Exxon share price<br>September , 2018<br>Share price: $65.23","Exxon share price<br>Oktober , 2018<br>Share price: $63.6","Exxon share price<br>November , 2018<br>Share price: $62.3","Exxon share price<br>Desember , 2018<br>Share price: $57.2","Exxon share price<br>Januar , 2019<br>Share price: $56.42","Exxon share price<br>Februar , 2019<br>Share price: $60.89","Exxon share price<br>Mars , 2019<br>Share price: $63.97","Exxon share price<br>April , 2019<br>Share price: $64.94","Exxon share price<br>Mai , 2019<br>Share price: $60.53","Exxon share price<br>Juni , 2019<br>Share price: $60.71","Exxon share price<br>Juli , 2019<br>Share price: $61.04","Exxon share price<br>August , 2019<br>Share price: $56.51","Exxon share price<br>September , 2019<br>Share price: $58.49","Exxon share price<br>Oktober , 2019<br>Share price: $55.72","Exxon share price<br>November , 2019<br>Share price: $57.4","Exxon share price<br>Desember , 2019<br>Share price: $57.37","Exxon share price<br>Januar , 2020<br>Share price: $55.62","Exxon share price<br>Februar , 2020<br>Share price: $47.67","Exxon share price<br>Mars , 2020<br>Share price: $33.08","Exxon share price<br>April , 2020<br>Share price: $35.24","Exxon share price<br>Mai , 2020<br>Share price: $37.63","Exxon share price<br>Juni , 2020<br>Share price: $40.87","Exxon share price<br>Juli , 2020<br>Share price: $36.99","Exxon share price<br>August , 2020<br>Share price: $36.46","Exxon share price<br>September , 2020<br>Share price: $32.05","Exxon share price<br>Oktober , 2020<br>Share price: $29.21","Exxon share price<br>November , 2020<br>Share price: $32.54","Exxon share price<br>Desember , 2020<br>Share price: $37.42","Exxon share price<br>Januar , 2021<br>Share price: $41.42","Exxon share price<br>Februar , 2021<br>Share price: $46.45","Exxon share price<br>Mars , 2021<br>Share price: $52.68","Exxon share price<br>April , 2021<br>Share price: $51.3","Exxon share price<br>Mai , 2021<br>Share price: $54.96","Exxon share price<br>Juni , 2021<br>Share price: $57.48","Exxon share price<br>Juli , 2021<br>Share price: $54.2","Exxon share price<br>August , 2021<br>Share price: $51.93","Exxon share price<br>September , 2021<br>Share price: $52.47","Exxon share price<br>Oktober , 2021<br>Share price: $58.41","Exxon share price<br>November , 2021<br>Share price: $59.69","Exxon share price<br>Desember , 2021<br>Share price: $57.86","Exxon share price<br>Januar , 2022<br>Share price: $67.67","Exxon share price<br>Februar , 2022<br>Share price: $75.29","Exxon share price<br>Mars , 2022<br>Share price: $78.95","Exxon share price<br>April , 2022<br>Share price: $81.55","Exxon share price<br>Mai , 2022<br>Share price: $87.3","Exxon share price<br>Juni , 2022<br>Share price: $90.23","Exxon share price<br>Juli , 2022<br>Share price: $84.45","Exxon share price<br>August , 2022<br>Share price: $91.1","Exxon share price<br>September , 2022<br>Share price: $89.81","Exxon share price<br>Oktober , 2022<br>Share price: $100.01","Exxon share price<br>November , 2022<br>Share price: $109.78","Exxon share price<br>Desember , 2022<br>Share price: $104.66"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"line":{"color":"#567595"},"marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>Figure for Exxon share price and Oil price</p>
+</div>
+</div>
+<p>Exxon’s stock price appears to correlate more closely to the oil price after 2015. We can see that they werent very effected by the drop in oil prices from 2014 to 2015 but after this year, they appear to be prices around the same as a barrel of oil.</p>
+<p>Now take “exxon” as a y-variable and “oil” as an x-variable.&nbsp;</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Assignment_4_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure for exxon as y and oil as x</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Use R’s&nbsp; <a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/lm">lm() function</a>. Set the variable on the y-axis and x-axis, and specify the data set.&nbsp;</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = exxon ~ oil, data = task2)
+
+Coefficients:
+(Intercept)          oil  
+    47.7232       0.1271  </code></pre>
+</div>
+</div>
+<p>After “running” the code, how do you interpret the estimated coefficients?&nbsp;</p>
+<p>The intercept coefficient shows the estimated value of exxon when oil is equal to 0, but it may now have a practical interpretation in this context since its unlikely for oil price to be 0.</p>
+<p>The slope coefficient of 0.1282 means that for every one increase in x, exxon’s value will increase by 0.1282. This means there is a positive linear relationship between oil prices and Exxon’s share price, indicating that higher oil prices are associated with higher share prices for Exxon.</p>
+</section>
+<section id="source-file" class="level1">
+<h1>Source file</h1>
+<p><a href="https://github.com/Danieljoha/Sok-1005/blob/main/Assignments/Assignment_4.qmd">Source is found on this link</a></p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

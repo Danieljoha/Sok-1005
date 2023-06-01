@@ -8,7 +8,7 @@ editor: visual
 
 <https://www.motor.no/aktuelt/motors-store-vintertest-av-rekkevidde-pa-elbiler/217132>
 
-```{r, message=false}
+```{r, message=FALSE}
 rm (list = ls())
 library(tidyverse)
 library(rvest) 
@@ -19,7 +19,7 @@ library(dplyr)
 
 Task 1
 
-```{r, warning=false}
+```{r, warning=FALSE}
 url <- "https://www.motor.no/aktuelt/motors-store-vintertest-av-rekkevidde-pa-elbiler/217132"
 
 
@@ -38,7 +38,7 @@ df_motor <- df_motor %>%
   separate("STOPP", into=c("stopp_km"), sep=" ")
   
 df_motor <- df_motor %>% 
-  na_if("x") %>% 
+  mutate(across(everything(), ~na_if(., "x"))) %>%
   drop_na()
 
 
